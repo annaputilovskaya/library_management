@@ -16,7 +16,7 @@ class Library:
         self.file_path = os.path.join("data", filename)
         self.books = self.load_books()
 
-    def load_books(self):
+    def load_books(self) -> list[Book]:
         """
         Возвращает список книг библиотеки, сохраненный в файле.
         Если путь к файлу не существует, возвращает пустой список.
@@ -60,7 +60,7 @@ class Library:
             self.save_books()
             print(f"Книга '{new_book}' добавлена в библиотеку.")
 
-    def get_book_by_id(self, book_id):
+    def get_book_by_id(self, book_id) -> Book:
         """
         Получает книгу по ее идентификатору.
         """
@@ -85,7 +85,7 @@ class Library:
 
     def search_books(self, query, filter_by=None):
         """
-        Ищет книгу по введенному запросу.
+        Выводит на экран результат поиска книг по введенному запросу.
         Возможен поиск по названию, автору, году издания
         и по всем вышеуказанным параметрам одновременно.
         """

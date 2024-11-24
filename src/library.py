@@ -9,7 +9,7 @@ class Library:
     Класс библиотеки.
     """
 
-    def __init__(self, filename="library.json"):
+    def __init__(self, filename:str="library.json"):
         """
         Инициализирует экземпляр класса Library.
         """
@@ -38,7 +38,7 @@ class Library:
                 indent=4,
             )
 
-    def add_book(self, title, author, year):
+    def add_book(self, title:str, author:str, year:str):
         """
         Добавляет файл в библиотеку.
         """
@@ -60,12 +60,14 @@ class Library:
             self.save_books()
             print(f"Книга '{new_book}' добавлена в библиотеку.")
 
-    def get_book_by_id(self, book_id) -> Book:
+    def get_book_by_id(self, book_id:str) -> Book:
         """
         Получает книгу по ее идентификатору.
         """
         if not book_id.isdigit():
-            raise ValueError("Книга не найдена. Идентификатор книги может иметь только числовое значение.")
+            raise ValueError(
+                "Книга не найдена. Идентификатор книги может иметь только числовое значение."
+            )
         else:
             books_list = list(filter(lambda book: book.id == int(book_id), self.books))
             if books_list:
@@ -73,7 +75,7 @@ class Library:
             else:
                 raise ValueError(f"Книга с id {book_id} не найдена.")
 
-    def delete_book(self, book_id):
+    def delete_book(self, book_id:str):
         """
         Удаляет книгу по ее идентификатору.
         """
@@ -86,7 +88,7 @@ class Library:
             self.save_books()
             print(f"Книга {book} удалена.")
 
-    def get_books_by_query(self, query, filter_by=None) -> list[Book]:
+    def get_books_by_query(self, query:str, filter_by:str=None) -> list[Book]:
         """
         Возвращает результат поиска книг в библиотеке по введенному запросу.
         Возможен поиск по названию, автору, году издания
@@ -120,7 +122,7 @@ class Library:
         """
         [print(book) for book in self.books]
 
-    def change_status(self, book_id, status):
+    def change_status(self, book_id:str, status:str):
         """
         Меняет статус книги в библиотеке.
         """

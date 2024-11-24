@@ -8,7 +8,7 @@ class Book:
 
     STATUS_CHOICE = ("в наличии", "выдана")
 
-    def __init__(self, id, title, author, year, status=STATUS_CHOICE[0]):
+    def __init__(self, id:int, title:str, author:str, year:str, status:str=STATUS_CHOICE[0]):
         """
         Инициализирует экземпляр класса Book.
         """
@@ -48,7 +48,7 @@ class Book:
         return self.__year
 
     @year.setter
-    def year(self, year):
+    def year(self, year:str):
         current_year = datetime.now().year
         if 868 <= int(year) <= current_year:
             self.__year = year

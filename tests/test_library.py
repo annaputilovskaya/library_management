@@ -19,20 +19,20 @@ class TestLibray(unittest.TestCase):
 
     def test_get_book_by_id(self):
         self.library.add_book("Book1", "author1", 2000)
-        self.assertEqual(self.library.get_book_by_id(1), self.library.books[0])
+        self.assertEqual(self.library.get_book_by_id("1"), self.library.books[0])
 
     def test_get_book_by_wrong_id(self):
         with self.assertRaises(ValueError):
-            self.library.get_book_by_id(1)
+            self.library.get_book_by_id("1")
 
     def test_delete_book(self):
         self.library.add_book("Book1", "author1", 2000)
-        self.library.delete_book(1)
+        self.library.delete_book("1")
         self.assertEqual(len(self.library.books), 0)
 
     def test_delete_book_by_wrong_id(self):
         self.library.add_book("Book1", "author1", 2000)
-        self.library.delete_book(2)
+        self.library.delete_book("2")
         self.assertEqual(len(self.library.books), 1)
 
     def test_get_books_by_query(self):
@@ -52,10 +52,10 @@ class TestLibray(unittest.TestCase):
 
     def test_change_status(self):
         self.library.add_book("Book1", "author1", 2000)
-        self.library.change_status(1, "выдана")
+        self.library.change_status("1", "выдана")
         self.assertEqual(self.library.books[0].status, "выдана")
 
     def test_change_to_incorrect_status(self):
         self.library.add_book("Book1", "author1", 2000)
-        self.library.change_status(1, "новая")
+        self.library.change_status("1", "новая")
         self.assertEqual(self.library.books[0].status, "в наличии")

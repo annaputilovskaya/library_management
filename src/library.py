@@ -40,7 +40,7 @@ class Library:
 
     def add_book(self, title:str, author:str, year:str):
         """
-        Добавляет файл в библиотеку.
+        Добавляет книгу в библиотеку.
         """
         if not self.books:
             book_id = 1

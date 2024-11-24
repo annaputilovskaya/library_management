@@ -83,9 +83,9 @@ class Library:
             self.save_books()
             print(f"Книга {book} удалена.")
 
-    def search_books(self, query, filter_by=None):
+    def get_books_by_query(self, query, filter_by=None) -> list[Book]:
         """
-        Выводит на экран результат поиска книг по введенному запросу.
+        Возвращает результат поиска книг в библиотеке по введенному запросу.
         Возможен поиск по названию, автору, году издания
         и по всем вышеуказанным параметрам одновременно.
         """
@@ -109,11 +109,7 @@ class Library:
                     self.books,
                 )
             )
-
-        if results:
-            [print(book) for book in results]
-        else:
-            print("Книг по указанному запросу не найдено.")
+        return results
 
     def display_books(self):
         """

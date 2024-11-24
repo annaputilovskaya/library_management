@@ -76,7 +76,7 @@ class Library:
         """
         try:
             book = self.get_book_by_id(book_id)
-        except KeyError as e:
+        except ValueError as e:
             print(e.args[0])
         else:
             self.books.remove(book)
@@ -127,7 +127,7 @@ class Library:
         else:
             try:
                 book = self.get_book_by_id(book_id)
-            except KeyError as e:
+            except ValueError as e:
                 print(e.args[0])
             else:
                 book.status = status

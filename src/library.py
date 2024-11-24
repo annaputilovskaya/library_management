@@ -68,7 +68,7 @@ class Library:
         if books_list:
             return books_list[0]
         else:
-            raise KeyError(f"Книга с id {book_id} не найдена.")
+            raise ValueError(f"Книга с id {book_id} не найдена.")
 
     def delete_book(self, book_id):
         """

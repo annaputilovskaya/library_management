@@ -64,11 +64,14 @@ class Library:
         """
         Получает книгу по ее идентификатору.
         """
-        books_list = list(filter(lambda book: book.id == book_id, self.books))
-        if books_list:
-            return books_list[0]
+        if not book_id.isdigit():
+            raise ValueError("Книга не найдена. Идентификатор книги может иметь только числовое значение.")
         else:
-            raise ValueError(f"Книга с id {book_id} не найдена.")
+            books_list = list(filter(lambda book: book.id == int(book_id), self.books))
+            if books_list:
+                return books_list[0]
+            else:
+                raise ValueError(f"Книга с id {book_id} не найдена.")
 
     def delete_book(self, book_id):
         """

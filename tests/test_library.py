@@ -5,7 +5,7 @@ from src.library import Library
 
 class TestLibray(unittest.TestCase):
     def setUp(self):
-        self.library = Library('test.json')
+        self.library = Library("test.json")
         self.library.books = []
 
     def test_add_book(self):
